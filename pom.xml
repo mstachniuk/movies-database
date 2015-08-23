@@ -157,6 +157,20 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.1.9.RELEASE</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/db/changelog/db.changelog.xml</changeLogFile>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/public</url>
+                    <username>liqui</username>
+                    <password>liqui</password>
+                    <dropFirst>false</dropFirst>
+                </configuration>
+            </plugin>
         </plugins>
 
     </build>
