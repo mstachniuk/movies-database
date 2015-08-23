@@ -1,0 +1,89 @@
+table thead {
+  background-color: #269abc;
+}
+
+table td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  thead {
+    background-color: #269abc;
+  }
+  tbody td {
+    tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.whole-page-position {
+  margin: auto;
+  width: 800px;
+}
+
+.header {
+  .whole-page-position;
+  height: 50px;
+  background-color: #269abc;
+  margin-bottom: 10px;
+}
+
+.logo {
+  vertical-align: middle;
+}
+
+.movies-list {
+  .whole-page-position;
+  border-style: solid;
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.movie-entry {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #c0c0c0;
+}
+
+.movie-movie-id {
+  font-size: large;
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.movie-row {
+  display: inline-block;
+  width: auto;
+}
+
+.movie-title {
+  display: inline-block;
+  font-size: large;
+}
+
+.movie-year {
+  display: inline-block;
+}
+
+.movie-roles {
+}
+
+.role-character {
+  display: inline-block;
+  width: 250px;
+}
+
+.role-actor {
+  display: inline-block;
+}
+
+.role-placeholder {
+  display: inline-block;
+  width: 50px;
+}
