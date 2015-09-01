@@ -3,6 +3,7 @@ package liquibasedemo.service;
 import liquibasedemo.data.User;
 import liquibasedemo.data.UserRight;
 import liquibasedemo.repository.UserRepository;
+import liquibasedemo.repository.UserRightRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserRightRepository userRightRepository;
 
     @Transactional
     public void createStandardUser(CreateUserInput input, List<UserRight> allRights) {
@@ -91,8 +95,8 @@ public class UserService {
     @Transactional
     public void createSomeUsers() {
         log.info("createSomeUsers");
+        List<UserRight> allRights = loadOrCreateAllPossiblesRights();
         for (int i = 0; i < 100; i++) {
-            List<UserRight> allRights = createAllPossiblesRights();
             CreateUserInput userInput = new CreateUserInput("jon" + i + "@doe.com", "$upa" + i);
             switch (i % 3) {
                 case 0:
@@ -110,13 +114,21 @@ public class UserService {
         }
     }
 
-    private List<UserRight> createAllPossiblesRights() {
+    private List<UserRight> loadOrCreateAllPossiblesRights() {
+        List<UserRight> all = userRightRepository.findAll();
         List<UserRight> expectedRights = new ArrayList<>();
         expectedRights.add(new UserRight("user", "standard user"));
         expectedRights.add(new UserRight("changeConfiguration", "can change config"));
         expectedRights.add(new UserRight("orderAcceptor", "can accept order"));
         expectedRights.add(new UserRight("admin", "Admin Super User"));
-        return expectedRights;
+
+        for (UserRight right : expectedRights) {
+            if (!all.contains(right)) {
+                all.add(right);
+            }
+        }
+
+        return all;
     }
 
 }

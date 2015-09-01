@@ -3,7 +3,7 @@ package liquibasedemo.data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_rights")
+@Table(name = "user_rights_new")
 public class UserRight {
 
     @Id
