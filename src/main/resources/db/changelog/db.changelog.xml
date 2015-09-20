@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <!--<property name="MEDIUMINT.type" value="INTEGER" dbms="hsqldb"/>-->
+    <property name="MEDIUMINT.type" value="MEDIUMINT" dbms="h2, mysql, hsqldb"/>
+
+    <changeSet author="staszek (generated)" id="1418571045624-1">
+        <createTable tableName="actors">
+            <column autoIncrement="true" name="actorid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sex" type="CHAR(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-2">
+        <createTable tableName="akanames">
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="akaname" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-3">
+        <createTable tableName="akatitles">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language" type="CHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-4">
+        <createTable tableName="altversions">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="versiontext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-5">
+        <createTable tableName="biographies">
+            <column autoIncrement="true" name="bioid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="biotext" type="MEDIUMTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-6">
+        <createTable tableName="business">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="businesstext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-7">
+        <createTable tableName="certificates">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(50)"/>
+            <column name="certification" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-8">
+        <createTable tableName="cinematgrs">
+            <column autoIncrement="true" name="cinematid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-9">
+        <createTable tableName="colorinfo">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="color" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-10">
+        <createTable tableName="composers">
+            <column autoIncrement="true" name="composerid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-11">
+        <createTable tableName="costdesigners">
+            <column autoIncrement="true" name="costdesid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-12">
+        <createTable tableName="countries">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-13">
+        <createTable tableName="crazycredits">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credittext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-14">
+        <createTable tableName="directors">
+            <column autoIncrement="true" name="directorid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-15">
+        <createTable tableName="distributors">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-16">
+        <createTable tableName="editors">
+            <column autoIncrement="true" name="editorid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-17">
+        <createTable tableName="genres">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-18">
+        <createTable tableName="goofs">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gooftext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-19">
+        <createTable tableName="keywords">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="keyword" type="VARCHAR(125)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-20">
+        <createTable tableName="language">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-21">
+        <createTable tableName="literature">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="literaturetext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-22">
+        <createTable tableName="locations">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-23">
+        <createTable tableName="misc">
+            <column autoIncrement="true" name="miscid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-24">
+        <createTable tableName="movielinks">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="movielinkstext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-25">
+        <createTable tableName="movies">
+            <column autoIncrement="true" name="movieid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="year" type="VARCHAR(100)"/>
+            <column name="imdbid" type="VARCHAR(10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-26">
+        <createTable tableName="movies2actors">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actorid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="as_character" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-27">
+        <createTable tableName="movies2cinematgrs">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cinematid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-28">
+        <createTable tableName="movies2composers">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="composerid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-29">
+        <createTable tableName="movies2costdes">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="costdesid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-30">
+        <createTable tableName="movies2directors">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="directorid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-31">
+        <createTable tableName="movies2editors">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="editorid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-32">
+        <createTable tableName="movies2misc">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="miscid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-33">
+        <createTable tableName="movies2proddes">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="proddesid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-34">
+        <createTable tableName="movies2producers">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="producerid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-35">
+        <createTable tableName="movies2writers">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="writerid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-36">
+        <createTable tableName="mpaaratings">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reasontext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-37">
+        <createTable tableName="plots">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plottext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-38">
+        <createTable tableName="prodcompanies">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-39">
+        <createTable tableName="proddesigners">
+            <column autoIncrement="true" name="proddesid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-40">
+        <createTable tableName="producers">
+            <column autoIncrement="true" name="producerid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-41">
+        <createTable tableName="quotes">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quotetext" type="MEDIUMTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-42">
+        <createTable tableName="ratings">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rank" type="CHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="votes" type="${MEDIUMINT.type}"/>
+            <column name="distribution" type="CHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-43">
+        <createTable tableName="releasedates">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(50)"/>
+            <column name="imdbdate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="releasedate" type="date"/>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-44">
+        <createTable tableName="runningtimes">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-45">
+        <createTable tableName="soundmix">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sound" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-46">
+        <createTable tableName="soundtracks">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="soundtracktext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-47">
+        <createTable tableName="taglines">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="taglinetext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-48">
+        <createTable tableName="technical">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addition" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-49">
+        <createTable tableName="trivia">
+            <column name="movieid" type="${MEDIUMINT.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="triviatext" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-50">
+        <createTable tableName="writers">
+            <column autoIncrement="true" name="writerid" type="${MEDIUMINT.type}">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-51">
+        <addPrimaryKey columnNames="movieid" constraintName="PRIMARY" tableName="business"/>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-52">
+        <createIndex indexName="actorid" tableName="movies2actors" unique="false">
+            <column name="actorid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-53">
+        <createIndex indexName="actors_name_fulltext" tableName="actors" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-54">
+        <createIndex indexName="akaname" tableName="akanames" unique="false">
+            <column name="akaname"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-55">
+        <createIndex indexName="certification" tableName="certificates" unique="false">
+            <column name="certification"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-56">
+        <createIndex indexName="cinematid" tableName="movies2cinematgrs" unique="false">
+            <column name="cinematid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-57">
+        <createIndex indexName="color" tableName="colorinfo" unique="false">
+            <column name="color"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-58">
+        <createIndex indexName="composerid" tableName="movies2composers" unique="false">
+            <column name="composerid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-59">
+        <createIndex indexName="costdesid" tableName="movies2costdes" unique="false">
+            <column name="costdesid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-60">
+        <createIndex indexName="country_certificates" tableName="certificates" unique="false">
+            <column name="country"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-61">
+        <createIndex indexName="country_countries" tableName="countries" unique="false">
+            <column name="country"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-62">
+        <createIndex indexName="country_releasedates" tableName="releasedates" unique="false">
+            <column name="country"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-63">
+        <createIndex indexName="directorid" tableName="movies2directors" unique="false">
+            <column name="directorid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-64">
+        <createIndex indexName="directors_name_fulltext" tableName="directors" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-65">
+        <createIndex indexName="editorid" tableName="movies2editors" unique="false">
+            <column name="editorid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-66">
+        <createIndex indexName="genre" tableName="genres" unique="false">
+            <column name="genre"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-67">
+        <createIndex indexName="keyword" tableName="keywords" unique="false">
+            <column name="keyword"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-68">
+        <createIndex indexName="miscid" tableName="movies2misc" unique="false">
+            <column name="miscid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-69">
+        <createIndex indexName="movieid_akatitles" tableName="akatitles" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-70">
+        <createIndex indexName="movieid_altversions" tableName="altversions" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-71">
+        <createIndex indexName="movieid_certificates" tableName="certificates" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-72">
+        <createIndex indexName="movieid_colorinfo" tableName="colorinfo" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-73">
+        <createIndex indexName="movieid_countries" tableName="countries" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-74">
+        <createIndex indexName="movieid_crazycredits" tableName="crazycredits" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-75">
+        <createIndex indexName="movieid_distributors" tableName="distributors" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-76">
+        <createIndex indexName="movieid_genres" tableName="genres" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-77">
+        <createIndex indexName="movieid_goofs" tableName="goofs" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-78">
+        <createIndex indexName="movieid_keywords" tableName="keywords" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-79">
+        <createIndex indexName="movieid_language" tableName="language" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-80">
+        <createIndex indexName="movieid_literature" tableName="literature" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-81">
+        <createIndex indexName="movieid_locations" tableName="locations" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-82">
+        <createIndex indexName="movieid_movielinks" tableName="movielinks" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-83">
+        <createIndex indexName="movieid_movies2actors" tableName="movies2actors" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-84">
+        <createIndex indexName="movieid_movies2cinematgrs" tableName="movies2cinematgrs" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-85">
+        <createIndex indexName="movieid_movies2composers" tableName="movies2composers" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-86">
+        <createIndex indexName="movieid_movies2costdes" tableName="movies2costdes" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-87">
+        <createIndex indexName="movieid_movies2directors" tableName="movies2directors" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-88">
+        <createIndex indexName="movieid_movies2editors" tableName="movies2editors" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-89">
+        <createIndex indexName="movieid_movies2misc" tableName="movies2misc" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-90">
+        <createIndex indexName="movieid_movies2proddes" tableName="movies2proddes" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-91">
+        <createIndex indexName="movieid_movies2producers" tableName="movies2producers" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-92">
+        <createIndex indexName="movieid_movies2writers" tableName="movies2writers" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-93">
+        <createIndex indexName="movieid_mpaaratings" tableName="mpaaratings" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-94">
+        <createIndex indexName="movieid_plots" tableName="plots" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-95">
+        <createIndex indexName="movieid_prodcompanies" tableName="prodcompanies" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-96">
+        <createIndex indexName="movieid_quotes" tableName="quotes" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-97">
+        <createIndex indexName="movieid_ratings" tableName="ratings" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-98">
+        <createIndex indexName="movieid_releasedates" tableName="releasedates" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-99">
+        <createIndex indexName="movieid_runningtimes" tableName="runningtimes" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-100">
+        <createIndex indexName="movieid_soundmix" tableName="soundmix" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-101">
+        <createIndex indexName="movieid_soundtracks" tableName="soundtracks" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-102">
+        <createIndex indexName="movieid_taglines" tableName="taglines" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-103">
+        <createIndex indexName="movieid_technical" tableName="technical" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-104">
+        <createIndex indexName="movieid_trivia" tableName="trivia" unique="false">
+            <column name="movieid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-105">
+        <createIndex indexName="name_akanames" tableName="akanames" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-106">
+        <createIndex indexName="name_biographies" tableName="biographies" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-107">
+        <createIndex indexName="name_cinematgrs" tableName="cinematgrs" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-108">
+        <createIndex indexName="name_composers" tableName="composers" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-109">
+        <createIndex indexName="name_costdesigners" tableName="costdesigners" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-110">
+        <createIndex indexName="name_editors" tableName="editors" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-111">
+        <createIndex indexName="name_misc" tableName="misc" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-112">
+        <createIndex indexName="name_prodcompanies" tableName="prodcompanies" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-113">
+        <createIndex indexName="name_proddesigners" tableName="proddesigners" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-114">
+        <createIndex indexName="name_producers" tableName="producers" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-115">
+        <createIndex indexName="name_technical" tableName="technical" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-116">
+        <createIndex indexName="name_writers" tableName="writers" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-117">
+        <createIndex indexName="proddesid_movies2proddes" tableName="movies2proddes" unique="false">
+            <column name="proddesid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-118">
+        <createIndex indexName="producerid_movies2producers" tableName="movies2producers" unique="false">
+            <column name="producerid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-119">
+        <createIndex indexName="releasedate_releasedates" tableName="releasedates" unique="false">
+            <column name="releasedate"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-120">
+        <createIndex indexName="sound_soundmix" tableName="soundmix" unique="false">
+            <column name="sound"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-121">
+        <createIndex indexName="title_akatitles" tableName="akatitles" unique="false">
+            <column name="title"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-122">
+        <createIndex indexName="title_movies" tableName="movies" unique="false">
+            <column name="title"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="staszek (generated)" id="1418571045624-123">
+        <createIndex indexName="writerid" tableName="movies2writers" unique="false">
+            <column name="writerid"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
