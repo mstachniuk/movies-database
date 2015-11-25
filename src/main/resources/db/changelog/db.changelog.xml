@@ -915,4 +915,41 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="Release3-01" author="staszek">
+        <createTable tableName="user_rights_new">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role_name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="Release3-02" author="staszek">
+        <createTable tableName="user_rights_x">
+            <column name="user_id" type="INT">
+                <constraints nullable="false" foreignKeyName="user_rights_x_fk"
+                             referencedTableName="user" referencedColumnNames="id"/>
+            </column>
+            <column name="right_id" type="INT">
+                <constraints nullable="false" foreignKeyName="user_rights_x_fk2"
+                             referencedTableName="user_rights_new" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="Release3-03" author="staszek">
+        <sql>
+            insert into user_rights_new select min(id) as id, role_name, description from user_rights group by
+            role_name
+        </sql>
+    </changeSet>
+    <changeSet id="Release3-04" author="staszek">
+        <sql>
+            insert into user_rights_x(user_id, right_id) select u.id, urn.id from user u join user_rights ur on u.id =
+            ur.user_id join user_rights_new urn on ur.role_name = urn.role_name
+        </sql>
+    </changeSet>
 </databaseChangeLog>
